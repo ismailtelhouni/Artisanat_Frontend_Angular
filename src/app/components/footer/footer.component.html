@@ -1,1 +1,48 @@
-<p>footer works!</p>
+<footer class="bg-gray-100">
+  <div class="container mx-auto p-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <h3 class="text-lg font-bold mb-4">Information</h3>
+        <ul class="list-none p-0">
+          <li class="mb-2">
+            <a routerLink="/about-us" (click)="navigateTo('/about-us')" class="cursor-pointer hover:underline">About us</a>
+          </li>
+          <li class="mb-2">
+            <a routerLink="/contact-us" (click)="navigateTo('/contact-us')" class="cursor-pointer hover:underline">Contact us</a>
+          </li>
+          <li class="mb-2">
+            <a routerLink="/blog" (click)="navigateTo('/blog')" class="cursor-pointer hover:underline">Blog</a>
+          </li>
+          <li class="mb-2">
+            <a routerLink="/care-instruction" (click)="navigateTo('/care-instruction')" class="cursor-pointer hover:underline">Care Instruction</a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-lg font-bold mb-4">Customer service</h3>
+        <ul class="list-none p-0">
+          <li class="mb-2">
+            <a routerLink="/terms-conditions" (click)="navigateTo('/terms-conditions')" class="cursor-pointer hover:underline">Terms & Conditions</a>
+          </li>
+          <li class="mb-2">
+            <a routerLink="/returns-exchanges" (click)="navigateTo('/returns-exchanges')" class="cursor-pointer hover:underline">Returns & Exchanges</a>
+          </li>
+          <li class="mb-2">
+            <a routerLink="/privacy-policy" (click)="navigateTo('/privacy-policy')" class="cursor-pointer hover:underline">Privacy Policy</a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-lg font-bold mb-4">Suivez-nous</h3>
+        <p class="mb-4">Restez connecté avec nous sur les réseaux sociaux :</p>
+        <ul class="list-none p-0 flex space-x-4">
+          <li><a href="https://www.facebook.com/ismail.rofix.946" class="text-blue-500 hover:underline" target="_blank">Facebook</a></li>
+          <li><a href="https://www.instagram.com/telhouni_ismail/" class="text-blue-500 hover:underline" target="_blank">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="bottom-bar text-center py-2">
+    <p class="text-sm">&copy; 2023 Mon Projet Artisanat. Tous droits réservés.</p>
+  </div>
+</footer>
