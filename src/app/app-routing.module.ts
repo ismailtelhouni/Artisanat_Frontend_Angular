@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductsComponent } from './pages/products/products.component';
+import { CartComponent } from './pages/cart/cart.component';
 import { AboutUsComponent } from './pages/informations/about-us/about-us.component';
 import { ContactUsComponent } from './pages/informations/contact-us/contact-us.component';
 import { BlogComponent } from './pages/informations/blog/blog.component';
@@ -12,10 +13,18 @@ import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
   {
+    path:"home",
+    component:HomeComponent
+  },
+  {
     path: 'products',
     component: ProductsComponent,
   },
   {
+    path: 'cart',
+    component: CartComponent,
+  },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
     path:"about-us",
     component:AboutUsComponent
   },
@@ -42,10 +51,6 @@ const routes: Routes = [
   {
     path:"privacy-policy",
     component:PrivacyPolicyComponent
-  },
-  {
-    path:"home",
-    component:HomeComponent
   },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];
