@@ -1,6 +1,13 @@
-<div class="flex justify-center">
-<mat-toolbar class="justify-between max-w-7xl mx-auto border-x">
-    <a routerLink="home">Artisanat</a>
+<div class="flex justify-center bg-gray-100">
+  <mat-toolbar class="justify-between max-w-7xl mx-auto bg-gray-100">
+    <a routerLink="home"(click)="navigateTo('/home')" class="cursor-pointer">Artisanat</a>
+    <div>
+      <a routerLink="about-us" (click)="navigateTo('/about-us')" class="cursor-pointer me-4 text-base font-normal"> About-us </a>
+      <a routerLink="about-us" (click)="navigateTo('/about-us')" class="cursor-pointer me-4 text-base font-normal"> About-us </a>
+      <a routerLink="about-us" (click)="navigateTo('/about-us')" class="cursor-pointer me-4 text-base font-normal"> About-us </a>
+      <a routerLink="about-us" (click)="navigateTo('/about-us')" class="cursor-pointer me-4 text-base font-normal"> About-us </a>
+    </div>
+
     <button mat-icon-button [matMenuTriggerFor]="menu">
       <mat-icon
       [matBadge]="1"
@@ -15,7 +22,7 @@
           <span class="mr-16">4 items</span>
           <a routerLink="cart">View Cart</a>
         </div>
-        
+
         <div class="flex justify-between py-3 font-light">
           Total:
           <span class="font-bold not-italic">{{
@@ -39,4 +46,3 @@
     </mat-menu>
   </mat-toolbar>
 </div>
-  
