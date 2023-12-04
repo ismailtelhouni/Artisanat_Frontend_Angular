@@ -7,15 +7,19 @@
       <a routerLink="about-us" (click)="navigateTo('/about-us')" class="cursor-pointer me-4 text-base font-normal"> About-us </a>
       <a routerLink="about-us" (click)="navigateTo('/about-us')" class="cursor-pointer me-4 text-base font-normal"> About-us </a>
     </div>
+    <div>
+      <a routerLink='/login' (click)="navigateTo('/login')" class="cursor-pointer border-2 border-amber-500 me-5 rounded-lg px-4 py-1 hover:bg-amber-500 hover:text-white" >se connecter </a>
 
-    <button mat-icon-button [matMenuTriggerFor]="menu">
-      <mat-icon
-      [matBadge]="1"
-      [matBadgeColor]="'warn'"
-      [color]="'blue'"
-        >shopping_cart</mat-icon
-      >
-    </button>
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon
+        [matBadge]="1"
+        [matBadgeColor]="'warn'"
+        [color]="'blue'"
+          >shopping_cart</mat-icon
+        >
+      </button>
+    </div>
+
     <mat-menu #menu="matMenu">
       <div class="p-3 divide-y divide-solid">
         <div class="pb-3 flex justify-between">
