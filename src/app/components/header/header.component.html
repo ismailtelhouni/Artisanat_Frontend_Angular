@@ -34,14 +34,12 @@
                 View Cart
               </button>
             </div>
-
             <div *ngIf="cart.items.length" class="py-3">
               <div *ngFor="let item of cart.items" class="flex justify-between font-light mb-2">
                 {{item.name}} x {{item.quantity}}
                 <span class="font-bold">{{item.price | currency}}</span>
               </div>
             </div>
-
             <div class="flex justify-between py-3 font-light">
               Total:
               <span class="font-bold not-italic">{{
@@ -66,32 +64,19 @@
         </mat-menu>
       </div>
     </div>
-    <!-- <div>
-      <a routerLink='/login' (click)="navigateTo('/login')" class="cursor-pointer border-2 border-amber-500 me-5 rounded-lg px-4 py-1 hover:bg-amber-500 hover:text-white" >se connecter </a>
-
-      <button mat-icon-button [matMenuTriggerFor]="menu">
-        <mat-icon
-        [matBadge]="1"
-        [matBadgeColor]="'warn'"
-        [color]="'blue'"
-          >shopping_cart</mat-icon
-        >
-      </button>
-    </div> -->
-
     <div class="p-0 m-0" [ngStyle]="{'z-index':'1600'}">
-      <a
+      <a 
       [class.h-underline-b-3]="isCurrentRoute('/home')"
-      routerLink="home" [ngStyle]="{'height':'100px','padding-bottom':'32px'}" (click)="navigateTo('/home')" class="cursor-pointer me-4 text-base font-normal">
-        H O M E
+      routerLink="home" [ngStyle]="{'height':'100px','padding-bottom':'32px'}" (click)="navigateTo('/home')" class="cursor-pointer me-4 text-base font-normal"> 
+        H O M E 
       </a>
-      <a
+      <a 
       [class.h-underline-b-3]="isCurrentRoute('/products')"
       routerLink="products" (click)="navigateTo('/products')" class="h-pb-32 cursor-pointer me-4 text-base font-normal"> S H O P </a>
-      <a
+      <a 
       [class.h-underline-b-3]="isCurrentRoute('/blog')"
       routerLink="blog" (click)="navigateTo('/blog')" class="h-pb-32 cursor-pointer me-4 text-base font-normal"> B L O G </a>
-      <a
+      <a 
       [class.h-underline-b-3]="isCurrentRoute('/contact-us')"
       routerLink="contact-us" (click)="navigateTo('/contact-us')" class="h-pb-32 cursor-pointer me-4 text-base font-normal"> C O N T A C T - U S </a>
     </div>
