@@ -34,14 +34,12 @@
                 View Cart
               </button>
             </div>
-    
             <div *ngIf="cart.items.length" class="py-3">
               <div *ngFor="let item of cart.items" class="flex justify-between font-light mb-2">
                 {{item.name}} x {{item.quantity}}
                 <span class="font-bold">{{item.price | currency}}</span>
               </div>
             </div>
-    
             <div class="flex justify-between py-3 font-light">
               Total:
               <span class="font-bold not-italic">{{
@@ -66,7 +64,6 @@
         </mat-menu>
       </div>
     </div>
-
     <div class="p-0 m-0" [ngStyle]="{'z-index':'1600'}">
       <a 
       [class.h-underline-b-3]="isCurrentRoute('/home')"

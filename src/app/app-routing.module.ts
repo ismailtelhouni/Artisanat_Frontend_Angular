@@ -10,6 +10,8 @@ import { TermsConditionsComponent } from './pages/informations/terms-conditions/
 import { ReturnsExchangesComponent } from './pages/informations/returns-exchanges/returns-exchanges.component';
 import { PrivacyPolicyComponent } from './pages/informations/privacy-policy/privacy-policy.component';
 import { HomeComponent } from './pages/home/home.component';
+import { LoginComponent } from './pages/auth/login/login.component';
+import { RegisterComponent } from './pages/auth/register/register.component';
 
 const routes: Routes = [
   {
@@ -25,6 +27,14 @@ const routes: Routes = [
     component: CartComponent,
   },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
+  {
+    path:'login',
+    component:LoginComponent
+  },
+  {
+    path:'register',
+    component:RegisterComponent
+  },
   {
     path:"about-us",
     component:AboutUsComponent
