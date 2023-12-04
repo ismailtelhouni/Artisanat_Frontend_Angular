@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { ApiService } from './services/api.service';
 import { Component , OnInit } from '@angular/core';
 
@@ -10,5 +11,11 @@ export class HomeComponent {
 
   homeImage :String = "../../../assets/img/5268821.jpg"
 
+
+constructor(private router: Router) {}
+
+navigateTo( route: string ): void {
+  this.router.navigate([ route ]);
+}
 
 }
