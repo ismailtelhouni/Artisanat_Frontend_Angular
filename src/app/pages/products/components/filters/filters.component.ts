@@ -1,5 +1,5 @@
 import { Component,Output,EventEmitter } from '@angular/core';
-import { CategoryDataService } from 'src/app/services/category-data.service';
+import { CategoryDataService } from 'src/app/services/apis/category-data.service';
 
 @Component({
   selector: 'app-filters',

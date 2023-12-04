@@ -1,48 +1,87 @@
-<div class="flex justify-center bg-gray-100">
-  <mat-toolbar class="justify-between max-w-7xl mx-auto bg-gray-100">
-    <a routerLink="home"(click)="navigateTo('/home')" class="cursor-pointer">Artisanat</a>
-    <div>
-      <a routerLink="about-us" (click)="navigateTo('/about-us')" class="cursor-pointer me-4 text-base font-normal"> About-us </a>
-      <a routerLink="about-us" (click)="navigateTo('/about-us')" class="cursor-pointer me-4 text-base font-normal"> About-us </a>
-      <a routerLink="about-us" (click)="navigateTo('/about-us')" class="cursor-pointer me-4 text-base font-normal"> About-us </a>
-      <a routerLink="about-us" (click)="navigateTo('/about-us')" class="cursor-pointer me-4 text-base font-normal"> About-us </a>
+<div class="flex justify-center align-items-center" [ngStyle]= "{'background-color':'#F9F7F7'}">
+  <mat-toolbar class="d-flex flex-column justify-center align-items-center max-w-7xl mx-auto" style="min-height: 170px;">
+    <div class="flex justify-between w-full align-items-center">
+      <div class="w-[100px]">
+        <button mat-button [matMenuTriggerFor]="sortByMenu">
+          USD
+          <mat-icon>expand_more</mat-icon>
+        </button>
+        <mat-menu #sortByMenu="matMenu">
+          <button mat-menu-item>USD</button>
+          <button mat-menu-item>EUR</button>
+          <button mat-menu-item>DH</button>
+        </mat-menu>
+      </div>
+      <a routerLink="home"(click)="navigateTo('/home')" class="cursor-pointer">
+        <img src="../../../assets/img/artis.PNG" alt="" srcset="" width="300">
+      </a>
+
+      <div class="w-[120px]">
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon
+          [matBadge]="itemQuantity"
+          [matBadgeHidden]="!itemQuantity"
+          [matBadgeColor]="'warn'"
+          [color]="'blue'"
+            >shopping_cart</mat-icon
+          >
+        </button>
+        <mat-menu #menu="matMenu">
+          <div class="p-3 divide-y divide-solid">
+            <div class="pb-3 flex justify-between">
+              <span class="mr-16">{{itemQuantity}} items</span>
+              <button routerLink="cart" (click)="navigateTo('/cart')">
+                View Cart
+              </button>
+            </div>
+    
+            <div *ngIf="cart.items.length" class="py-3">
+              <div *ngFor="let item of cart.items" class="flex justify-between font-light mb-2">
+                {{item.name}} x {{item.quantity}}
+                <span class="font-bold">{{item.price | currency}}</span>
+              </div>
+            </div>
+    
+            <div class="flex justify-between py-3 font-light">
+              Total:
+              <span class="font-bold not-italic">{{
+                getTotal(cart.items) | currency
+              }}</span>
+            </div>
+            <div class="pt-3 flex justify-between">
+              <button
+                class="bg-rose-600 text-white rounded-full w-9 h-9"
+                (click)="onClearCart()"
+              >
+                <mat-icon>remove_shopping_cart</mat-icon>
+              </button>
+              <button
+                routerLink="cart"
+                class="bg-green-600 text-white rounded-full w-9 h-9"
+              >
+                <mat-icon>shopping_cart_checkout</mat-icon>
+              </button>
+            </div>
+          </div>
+        </mat-menu>
+      </div>
     </div>
 
-    <button mat-icon-button [matMenuTriggerFor]="menu">
-      <mat-icon
-      [matBadge]="1"
-      [matBadgeColor]="'warn'"
-      [color]="'blue'"
-        >shopping_cart</mat-icon
-      >
-    </button>
-    <mat-menu #menu="matMenu">
-      <div class="p-3 divide-y divide-solid">
-        <div class="pb-3 flex justify-between">
-          <span class="mr-16">4 items</span>
-          <a routerLink="cart">View Cart</a>
-        </div>
-
-        <div class="flex justify-between py-3 font-light">
-          Total:
-          <span class="font-bold not-italic">{{
-            '1500' | currency
-          }}</span>
-        </div>
-        <div class="pt-3 flex justify-between">
-          <button
-            class="bg-rose-600 text-white rounded-full w-9 h-9"
-          >
-            <mat-icon>remove_shopping_cart</mat-icon>
-          </button>
-          <button
-            routerLink="cart"
-            class="bg-green-600 text-white rounded-full w-9 h-9"
-          >
-            <mat-icon>shopping_cart_checkout</mat-icon>
-          </button>
-        </div>
-      </div>
-    </mat-menu>
+    <div class="p-0 m-0" [ngStyle]="{'z-index':'1600'}">
+      <a 
+      [class.h-underline-b-3]="isCurrentRoute('/home')"
+      routerLink="home" [ngStyle]="{'height':'100px','padding-bottom':'32px'}" (click)="navigateTo('/home')" class="cursor-pointer me-4 text-base font-normal"> 
+        H O M E 
+      </a>
+      <a 
+      [class.h-underline-b-3]="isCurrentRoute('/products')"
+      routerLink="products" (click)="navigateTo('/products')" class="h-pb-32 cursor-pointer me-4 text-base font-normal"> S H O P </a>
+      <a 
+      [class.h-underline-b-3]="isCurrentRoute('/blog')"
+      routerLink="blog" (click)="navigateTo('/blog')" class="h-pb-32 cursor-pointer me-4 text-base font-normal"> B L O G </a>
+      <a 
+      [class.h-underline-b-3]="isCurrentRoute('/contact-us')"
+      routerLink="contact-us" (click)="navigateTo('/contact-us')" class="h-pb-32 cursor-pointer me-4 text-base font-normal"> C O N T A C T - U S </a>
+    </div>
   </mat-toolbar>
 </div>
