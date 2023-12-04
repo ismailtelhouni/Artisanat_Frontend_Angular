@@ -11,6 +11,7 @@ import { ComponentsModule } from './components/components.module';
 import { PagesModule } from './pages/pages.module';
 import { AuthModule } from './pages/auth/auth.module';
 import { RouterModule } from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { RouterModule } from '@angular/router';
     ComponentsModule,
     HttpClientModule,
     PagesModule,
-    AuthModule
+    AuthModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,8 +2,18 @@
 
   <!-- Ajoutez le chemin vers votre image dans l'attribut src -->
   <!-- <img [src]="homeImage" alt="Description de l'image" class="w-full mb-6 max-h-screen"> -->
-  <div class="homeImage" [style.backgroundImage]="'url(' + homeImage + ')'">
-
+  <div class="homeImage relative" [style.backgroundImage]="'url(' + homeImage + ')'">
+    <div class="flex flex-col absolute" [ngStyle]="{'bottom':'35%','left': '10%'}">
+      <h1 [ngStyle]="{'font-size':'51px','font-weight':'500'}">Artisanat</h1>
+      <h3 [ngStyle]="{'font-size':'20px'}">Exactly What You Need</h3>
+      <button
+      class=""
+      (click)="navigateTo('/products')" 
+      mat-raised-button 
+      [ngStyle]="{'background-color':'','color':'#9C8B58'}">
+          Discover our products
+      </button>
+    </div>
   </div>
   <div class="pb-10 px-0 md:px-20 lg:p-30 border-b border-black">
     <p class="px-20 p-8  text-lg text-gray-500" >
