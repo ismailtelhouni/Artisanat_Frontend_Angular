@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { SharedModule } from './shared/shared.module';
 import { ComponentsModule } from './components/components.module';
@@ -12,6 +12,23 @@ import { PagesModule } from './pages/pages.module';
 import { AuthModule } from './pages/auth/auth.module';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+
+
+
+// export function HttpLoaderFactory(http: HttpClient) {
+//   return new TranslateHttpLoader(http, './assets/i18n/', '.xml').getTranslationFileContent()
+//     .pipe(map(data => {
+//       return xml2js.parseStringPromise(data, { explicitArray: false, mergeAttrs: true });
+//     }));
+// }
+
+// AoT requires an export function for factories
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -25,8 +42,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ComponentsModule,
     HttpClientModule,
     PagesModule,
+    NgbModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
     AuthModule,
-    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

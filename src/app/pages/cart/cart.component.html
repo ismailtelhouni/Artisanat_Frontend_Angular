@@ -94,7 +94,7 @@
         <div class="col-md-2">
             <span class="block max-w-xs truncate">{{product.name}}</span>
         </div>
-        <div class="col-md-2">{{product.price | currency}}</div>
+        <div class="col-md-2">{{product.prix | currency}}</div>
         <div class="col-md-2 d-flex align-items-center">
             <button
             (click)="onRemoveQuantity(product)"
@@ -108,7 +108,7 @@
                 <mat-icon>add</mat-icon>
             </button>
         </div>
-        <div class="col-md-2">{{product.quantity*product.price|currency}}</div>
+        <div class="col-md-2">{{product.quantity*product.prix|currency}}</div>
         <div class="col-md-2">
             <button mat-mini-fab color="warn"
             (click)="onRemoveFromCart(product)"
@@ -129,7 +129,9 @@
             </span>
         </div>
         <div class="col-md-2">
-            <button mat-raised-button color="primary">
+            <button
+            (click)="navigateTo('checkout')"
+            mat-raised-button color="primary">
                 Proceed tocheckout
             </button>
         </div>

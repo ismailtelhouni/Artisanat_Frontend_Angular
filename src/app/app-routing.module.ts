@@ -10,6 +10,9 @@ import { TermsConditionsComponent } from './pages/informations/terms-conditions/
 import { ReturnsExchangesComponent } from './pages/informations/returns-exchanges/returns-exchanges.component';
 import { PrivacyPolicyComponent } from './pages/informations/privacy-policy/privacy-policy.component';
 import { HomeComponent } from './pages/home/home.component';
+import { UploadComponent } from './components/upload/upload.component';
+import { OneProductComponent } from './pages/one-product/one-product.component';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
 
@@ -62,6 +65,17 @@ const routes: Routes = [
   {
     path:"privacy-policy",
     component:PrivacyPolicyComponent
+  },
+  {
+    path:"upload",
+    component:UploadComponent
+  },{
+    path:"one-product",
+    component:OneProductComponent
+  },
+  { 
+    path:"checkout", 
+    component:CheckoutComponent 
   },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];

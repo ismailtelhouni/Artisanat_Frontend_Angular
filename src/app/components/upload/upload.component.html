@@ -1,0 +1,7 @@
+<!-- upload.component.html -->
+<form (submit)="onSubmit($event)" enctype="multipart/form-data">
+    <input name="image" type="file" (change)="onFileSelected($event)" />
+    <input name="produit_id" type="text" (change)="onProduitSelected($event)" class="text" placeholder="Product id"/>
+    <button type="submit">Upload</button>
+</form>
+  

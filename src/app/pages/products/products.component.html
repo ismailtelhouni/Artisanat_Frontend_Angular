@@ -1,6 +1,6 @@
 <mat-drawer-container
   [autosize]="true"
-  class="min-h-full max-w-7xl mx-auto border-x"
+  class="min-h-full max-w-10xl mx-auto border-x"
 >
   <mat-drawer mode="side" opened class="p-6">
     <div>
@@ -12,15 +12,25 @@
     <app-products-header (columnsCountChange)="onColumnsCountChange($event)"></app-products-header>
     {{category}}
     <mat-grid-list
+      *ngIf="products && products.length"
       gutterSize="16"
       [cols]="cols"
       [rowHeight]="rowHeight"
       >
-      <mat-grid-tile>
+      <mat-grid-tile *ngFor="let product of products">
         <app-product-box
         (AddToCart)="onAddToCart($event)"
-        class="w-full" 
-        [fullWidthMode]="cols===1"></app-product-box>
+        class="w-full cp" 
+        id={{product.id}}
+        nom={{product.nom}}
+        description={{product.description}}
+        [prix]="product.prix"
+        [store]="product.store"
+        [categories]="product.categories"
+        [images]="product.images"
+        [fullWidthMode]="cols===1"
+        >
+      </app-product-box>
       </mat-grid-tile>
     </mat-grid-list>
   </mat-drawer-content>
