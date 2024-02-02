@@ -7,6 +7,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { ReturnsExchangesComponent } from './returns-exchanges/returns-exchanges.component';
 import { TermsConditionsComponent } from './terms-conditions/terms-conditions.component';
+import { InformationsRoutingModule } from './informations-routing.module';
 
 
 
@@ -21,7 +22,8 @@ import { TermsConditionsComponent } from './terms-conditions/terms-conditions.co
     TermsConditionsComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    InformationsRoutingModule
   ],
   exports : [
     AboutUsComponent,

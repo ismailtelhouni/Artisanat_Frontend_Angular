@@ -66,18 +66,6 @@
         </mat-menu>
       </div>
     </div>
-    <!-- <div>
-      <a routerLink='/login' (click)="navigateTo('/login')" class="cursor-pointer border-2 border-amber-500 me-5 rounded-lg px-4 py-1 hover:bg-amber-500 hover:text-white" >se connecter </a>
-
-      <button mat-icon-button [matMenuTriggerFor]="menu">
-        <mat-icon
-        [matBadge]="1"
-        [matBadgeColor]="'warn'"
-        [color]="'blue'"
-          >shopping_cart</mat-icon
-        >
-      </button>
-    </div> -->
 
     <div class="p-0 m-0" [ngStyle]="{'z-index':'1600'}">
       <a
@@ -96,4 +84,14 @@
       routerLink="contact-us" (click)="navigateTo('/contact-us')" class="h-pb-32 cursor-pointer me-4 text-base font-normal"> C O N T A C T - U S </a>
     </div>
   </mat-toolbar>
+
+  <div class="md:static md:me-2 fixed end-0">
+    <div *ngIf="!isAuthenticated; else loggedIn" >
+      <button mat-flat-button (click)="navigateTo('/login')" class=" border-1 border-A29262 cursor-pointer rounded-lg px-4 py-2 me-2 hoverbg-e0cb8c hover:text-white">Login</button>
+    </div>
+    <ng-template #loggedIn >
+      <button mat-flat-button (click)="logout()" class=" border-1 border-A29262 cursor-pointer rounded-lg px-4 py-2 me-2 hoverbg-e0cb8c hover:text-white">Logout</button>
+    </ng-template>
+  </div>
+
 </div>

@@ -11,6 +11,7 @@ import { InformationsModule } from './informations/informations.module';
 import { FeaturedProductsComponent } from './home/components/featured-products/featured-products.component';
 import { CardProductComponent } from './home/components/card-product/card-product.component';
 import { HandcraftedComponent } from './home/components/handcrafted/handcrafted.component';
+import { ArtisanModule } from './artisan/artisan.module';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { HandcraftedComponent } from './home/components/handcrafted/handcrafted.
     CommonModule,
     SharedModule,
     InformationsModule,
+    ArtisanModule,
   ],
   exports: [],
 })
