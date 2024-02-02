@@ -13,6 +13,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { UploadComponent } from './components/upload/upload.component';
 import { OneProductComponent } from './pages/one-product/one-product.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { LoginComponent } from './pages/auth/login/login.component';
+import { RegisterComponent } from './pages/auth/register/register.component';
 
 const routes: Routes = [
   {
@@ -28,6 +30,14 @@ const routes: Routes = [
     component: CartComponent,
   },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
+  {
+    path:'login',
+    component:LoginComponent
+  },
+  {
+    path:'register',
+    component:RegisterComponent
+  },
   {
     path:"about-us",
     component:AboutUsComponent

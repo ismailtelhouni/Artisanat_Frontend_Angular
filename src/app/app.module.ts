@@ -9,6 +9,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { SharedModule } from './shared/shared.module';
 import { ComponentsModule } from './components/components.module';
 import { PagesModule } from './pages/pages.module';
+import { AuthModule } from './pages/auth/auth.module';
+import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -34,6 +36,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   imports: [
     BrowserModule,
+    RouterModule,
     AppRoutingModule,
     SharedModule,
     ComponentsModule,
@@ -47,6 +50,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         deps: [HttpClient],
       },
     }),
+    AuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
