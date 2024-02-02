@@ -4,6 +4,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProductsComponent } from './pages/products/products.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { HomeComponent } from './pages/home/home.component';
+import { UploadComponent } from './components/upload/upload.component';
+import { OneProductComponent } from './pages/one-product/one-product.component';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
 
@@ -40,6 +43,17 @@ const routes: Routes = [
   {
     path:"artisan",
     loadChildren:()=> import("./pages/artisan/artisan.module").then(m=>m.ArtisanModule)
+  },
+  {
+    path:"upload",
+    component:UploadComponent
+  },{
+    path:"one-product",
+    component:OneProductComponent
+  },
+  { 
+    path:"checkout", 
+    component:CheckoutComponent 
   },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];

@@ -1,20 +1,21 @@
 <mat-card class="p-2" [ngClass]="{'text-center':!fullWidthMode}">
     <div [ngClass]="{'flex':fullWidthMode}">
-        <img class="mb-1 mx-auto"
-        [ngClass]="{'h-[200px]':!fullWidthMode,'h-[190px]':fullWidthMode}"
-        src="https://artisans-dumaroc.com/cdn/shop/products/Chabichicceramicoilburnernude_800x.png?v=1637455428"
-        >
+        <div (click)="navigateTo(product.id)">
+            <img class="mb-1 mx-auto pt-3 px-1"
+        [ngClass]="{'h-[250px] w-100':!fullWidthMode,'h-[190px]':fullWidthMode}"
+        [src]="getImageSrc(images[0])" alt="Product Image">
+        </div>
         <div class="w-full"
         [ngClass]="{'pb-8 flex flex-col justify-between h-[200px] p-4':fullWidthMode}"
         >
-            <div>
-                <h5>CHABI CHIC</h5>
-                <p class="truncate hover:whitespace-normal">CERAMIC OIL BURNER - NUDE</p>
-                <p *ngIf="fullWidthMode">Use with your favorite wax melts or essential oils, this ceramic oil burner is handmade in a simple, minimalistic style with a subtle gold rim finish.  Use this burner to slowly diffuse a scent into your home in any room of your choice. Makes for a great gift to friends and family.</p>
+            <div (click)="navigateTo(product.id)">
+                <h5 style="text-transform: uppercase;" class="h-tu">{{this.product.store.nom}}</h5>
+                <p style="text-transform: uppercase;" class="truncate hover:whitespace-normal">{{this.product.nom}}</p>
+                <p *ngIf="fullWidthMode"> {{this.product.description}} Use with your favorite wax melts or essential oils, this ceramic oil burner is handmade in a simple, minimalistic style with a subtle gold rim finish.  Use this burner to slowly diffuse a scent into your home in any room of your choice. Makes for a great gift to friends and family.</p>
             </div>
             <div class="flex justify-between ">
                 <span class="text-red-400">
-                    {{'150' | currency}}
+                    {{product.prix| currency}}
                 </span>
                 <button (click)="onAddToCart()">
                     <mat-icon>shopping_cart</mat-icon>

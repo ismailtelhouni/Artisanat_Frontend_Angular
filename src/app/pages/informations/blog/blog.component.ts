@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-blog',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class BlogComponent {
 
+  constructor(private translateService: TranslateService) {
+    translateService.setDefaultLang('en'); // Set default language
+    translateService.use('en'); // Use a specific language
+  }
 }

@@ -12,7 +12,16 @@ import { FeaturedProductsComponent } from './home/components/featured-products/f
 import { CardProductComponent } from './home/components/card-product/card-product.component';
 import { HandcraftedComponent } from './home/components/handcrafted/handcrafted.component';
 import { ArtisanModule } from './artisan/artisan.module';
+import { OneProductComponent } from './one-product/one-product.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient } from '@angular/common/http';
 
+
+// AoT requires an export function for factories
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 @NgModule({
   declarations: [
     HomeComponent,
@@ -24,6 +33,8 @@ import { ArtisanModule } from './artisan/artisan.module';
     FeaturedProductsComponent,
     CardProductComponent,
     HandcraftedComponent,
+    OneProductComponent,
+    CheckoutComponent,
   ],
   imports: [
     CommonModule,

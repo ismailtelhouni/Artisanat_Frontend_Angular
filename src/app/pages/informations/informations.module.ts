@@ -8,8 +8,16 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
 import { ReturnsExchangesComponent } from './returns-exchanges/returns-exchanges.component';
 import { TermsConditionsComponent } from './terms-conditions/terms-conditions.component';
 import { InformationsRoutingModule } from './informations-routing.module';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient } from '@angular/common/http';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
 
+
+// AoT requires an export function for factories
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -24,6 +32,13 @@ import { InformationsRoutingModule } from './informations-routing.module';
   imports: [
     CommonModule,
     InformationsRoutingModule
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
   ],
   exports : [
     AboutUsComponent,

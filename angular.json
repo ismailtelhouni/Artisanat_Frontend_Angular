@@ -33,7 +33,9 @@
               "node_modules/ngx-spinner/animations/ball-spin.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "buildOptimizer": false,
+            "optimization": false
           },
           "configurations": {
             "production": {
