@@ -18,7 +18,7 @@ export class CartService {
     const itemInCart = items.find((_item)=>_item.id === item.id);
 
     if(itemInCart){
-      itemInCart.quantity++;
+      itemInCart.quantity+=item.quantity;
     }else{
       items.push(item);
     }
@@ -31,7 +31,7 @@ export class CartService {
 
   getTotal(items: Array<CartItem>):number{
     return items
-    .map((item)=>item.price*item.quantity)
+    .map((item)=>item.prix*item.quantity)
     .reduce((prev,current)=>prev+current,0)
   }
 
