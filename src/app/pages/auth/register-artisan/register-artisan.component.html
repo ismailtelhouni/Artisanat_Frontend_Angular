@@ -1,0 +1,350 @@
+<app-container-form [imagetest]="image">
+  <form [formGroup]="registerForm" action="" method="post" class="w-75">
+    <div class="border-b border-gray-900/10 pb-12 ">
+      <ol
+        class="flex items-center w-full text-sm font-medium text-center text-gray-500 dark:text-gray-400 sm:text-base">
+        <li
+          class="flex md:w-full items-center sm:after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10 dark:after:border-gray-700"
+          [class.text-dbc588]="page==1">
+          <span
+            class="flex items-center after:content-['/'] sm:after:hidden after:mx-2 after:text-gray-200 dark:after:text-gray-500">
+            <div *ngIf="page==1">
+              <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 me-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+              </svg>
+            </div>
+            <div *ngIf="page != 1">
+              <span class="me-2">1</span>
+            </div>
+            Informations <span class="sm:ms-2"> du</span> <span class="hidden sm:inline-flex sm:ms-2"> compte</span>
+          </span>
+        </li>
+        <li
+          class="flex md:w-full items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10 dark:after:border-gray-700"
+          [class.text-dbc588]="page==2">
+          <span
+            class="flex items-center after:content-['/'] sm:after:hidden after:mx-2 after:text-gray-200 dark:after:text-gray-500">
+            <div *ngIf="page==2">
+              <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 me-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+              </svg>
+            </div>
+            <div *ngIf="page != 2">
+              <span class="me-2">2</span>
+            </div>
+            Informations <span class="hidden sm:inline-flex sm:ms-2">personnelles</span>
+          </span>
+        </li>
+        <li
+          class="flex md:w-full items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10 dark:after:border-gray-700"
+          [class.text-dbc588]="page==3">
+          <span
+            class="flex items-center after:content-['/'] sm:after:hidden after:mx-2 after:text-gray-200 dark:after:text-gray-500">
+            <div *ngIf="page==3">
+              <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 me-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+              </svg>
+            </div>
+            <div *ngIf="page != 3">
+              <span class="me-2">3</span>
+            </div>
+            Informations
+            <span class="sm:ms-2">sur</span>
+            <span class="sm:ms-2">le</span>
+            <span class="hidden sm:inline-flex sm:ms-2"> store</span>
+          </span>
+        </li>
+        <li class="flex items-center" [class.text-dbc588]="page==4">
+          <div *ngIf="page==4">
+            <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 me-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor" viewBox="0 0 20 20">
+              <path
+                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+            </svg>
+          </div>
+          <div *ngIf="page != 4">
+            <span class="me-2">4</span>
+          </div>
+          Confirmation
+        </li>
+      </ol>
+
+      <div *ngIf="page==1" class="w-full ms-5 ps-5 ">
+        <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+          <div class="sm:col-span-6">
+            <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Adresse e-mail *</label>
+            <div class="mt-2">
+              <input id="email" name="email" type="email" formControlName="email" autocomplete="email"
+                class="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+              <ng-container *ngFor="let validation of validation_messages.email">
+                <mat-error
+                  *ngIf="registerForm.get('email')?.hasError(validation.type) && (registerForm.get('email')?.dirty || registerForm.get('email')?.touched)">
+                  {{validation.message}}
+                </mat-error>
+              </ng-container>
+            </div>
+          </div>
+
+          <div class="sm:col-span-6">
+            <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Mot de pass *</label>
+            <div class="mt-2">
+              <input id="password" name="password" type="password" formControlName="password" autocomplete="password"
+                class="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+              <ng-container *ngFor="let validation of validation_messages.password">
+                <mat-error
+                  *ngIf="registerForm.get('password')?.hasError(validation.type) && (registerForm.get('password')?.dirty || registerForm.get('password')?.touched)">
+                  {{validation.message}}
+                </mat-error>
+              </ng-container>
+            </div>
+          </div>
+          <div class="sm:col-span-6">
+            <label for="comPassword" class="block text-sm font-medium leading-6 text-gray-900">Confirmer le mot de pass
+              *
+            </label>
+            <div class="mt-2">
+              <input id="comPassword" name="comPassword" type="password" formControlName="comPassword"
+                autocomplete="comPassword"
+                class="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+              <ng-container *ngFor="let validation of validation_messages.comPassword">
+                <mat-error
+                  *ngIf="registerForm.get('comPassword')?.hasError(validation.type) && (registerForm.get('comPassword')?.dirty || registerForm.get('comPassword')?.touched)">
+                  {{validation.message}}
+                </mat-error>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="page==2">
+        <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+          <div class="sm:col-span-3">
+            <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Prénom *</label>
+            <div class="mt-2">
+              <input type="text" name="first-name" id="first-name" formControlName="prenom" autocomplete="given-name"
+                class="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+              <ng-container *ngFor="let validation of validation_messages.prenom">
+                <mat-error
+                  *ngIf="registerForm.get('prenom')?.hasError(validation.type) && (registerForm.get('prenom')?.dirty || registerForm.get('prenom')?.touched)">
+                  {{validation.message}}
+                </mat-error>
+              </ng-container>
+            </div>
+          </div>
+
+          <div class="sm:col-span-3">
+            <label for="nom" class="block text-sm font-medium leading-6 text-gray-900">Nom *</label>
+            <div class="mt-2">
+              <input type="text" name="nom" id="nom" formControlName="nom" autocomplete="family-name"
+                [value]="registerForm.get('nom')"
+                class="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+              <ng-container *ngFor="let validation of validation_messages.nom">
+                <mat-error
+                  *ngIf="registerForm.get('nom')?.hasError(validation.type) && (registerForm.get('nom')?.dirty || registerForm.get('nom')?.touched)">
+                  {{validation.message}}
+                </mat-error>
+              </ng-container>
+            </div>
+          </div>
+
+          <div class="sm:col-span-2">
+            <label for="ville" class="block text-sm font-medium leading-6 text-gray-900">Ville *</label>
+            <div class="mt-2">
+              <input id="ville" name="ville" type="text" formControlName="ville" autocomplete="ville"
+                class="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+              <ng-container *ngFor="let validation of validation_messages.ville">
+                <mat-error
+                  *ngIf="registerForm.get('ville')?.hasError(validation.type) && (registerForm.get('ville')?.dirty || registerForm.get('ville')?.touched)">
+                  {{validation.message}}
+                </mat-error>
+              </ng-container>
+            </div>
+          </div>
+
+          <div class="sm:col-span-2">
+            <label for="rue" class="block text-sm font-medium leading-6 text-gray-900">Rue *</label>
+            <div class="mt-2">
+              <input id="rue" name="rue" type="text" formControlName="rue" autocomplete="rue"
+                class="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+              <ng-container *ngFor="let validation of validation_messages.rue">
+                <mat-error
+                  *ngIf="registerForm.get('rue')?.hasError(validation.type) && (registerForm.get('rue')?.dirty || registerForm.get('rue')?.touched)">
+                  {{validation.message}}
+                </mat-error>
+              </ng-container>
+            </div>
+          </div>
+
+          <div class="sm:col-span-2">
+            <label for="numero" class="block text-sm font-medium leading-6 text-gray-900">Numero *</label>
+            <div class="mt-2">
+              <input id="numero" name="numero" type="text" formControlName="numero" autocomplete="numero"
+                class="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+              <ng-container *ngFor="let validation of validation_messages.numero">
+                <mat-error
+                  *ngIf="registerForm.get('numero')?.hasError(validation.type) && (registerForm.get('numero')?.dirty || registerForm.get('numero')?.touched)">
+                  {{validation.message}}
+                </mat-error>
+              </ng-container>
+            </div>
+          </div>
+
+          <div class="sm:col-span-6">
+            <label for="telephone" class="block text-sm font-medium leading-6 text-gray-900">Téléphone *</label>
+            <div class="mt-2">
+              <input id="telephone" name="telephone" type="text" formControlName="telephone" autocomplete="telephone"
+                class="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+              <ng-container *ngFor="let validation of validation_messages.telephone">
+                <mat-error
+                  *ngIf="registerForm.get('telephone')?.hasError(validation.type) && (registerForm.get('telephone')?.dirty || registerForm.get('telephone')?.touched)">
+                  {{validation.message}}
+                </mat-error>
+              </ng-container>
+            </div>
+          </div>
+
+          <div class="col-span-full">
+            <label for="cover-photo" class="block text-sm font-medium leading-6 text-gray-900">profile *</label>
+            <label for="profile"
+              class="relative w-full cursor-pointer rounded-md bg-white font-semibold text-dbc588 focus-within:outline-none focus-within:ring-2 focus-within:text-dbc588 focus-within:text-dbc588 hover:text-indigo-500">
+
+              <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10 h-75">
+                <div class="text-center">
+                  <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor"
+                    aria-hidden="true">
+                    <path fill-rule="evenodd"
+                      d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z"
+                      clip-rule="evenodd" />
+                  </svg>
+                  <div class="mt-4 flex text-sm leading-6 text-gray-600">
+                    <span>Upload a file</span>
+                    <input id="profile" name="profile" type="file" class="sr-only" (change)="onFileSelected($event)">
+                    <ng-container *ngFor="let validation of validation_messages.profile">
+                      <mat-error
+                        *ngIf="registerForm.get('profile')?.hasError(validation.type) && (registerForm.get('profile')?.dirty || registerForm.get('profile')?.touched)">
+                        {{validation.message}}
+                      </mat-error>
+                    </ng-container>
+                    <p class="pl-1">or drag and drop</p>
+                  </div>
+                  <p class="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
+                </div>
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="page==3">
+
+        <div class="bg-blue-100 border border-blue-400 px-4 py-3 rounded relative mt-10" role="alert">
+          <strong class="font-bold">Note :</strong>
+          <span class="block sm:inline">
+            À l'origine, le stockage est virtuel, mais en cas de configuration pour utiliser un stockage physique, veuillez spécifier une adresse correspondante.
+          </span>
+        </div>
+
+        <div class="col col-md-4">
+          <img class="img-avatar" src="{{item.avatar}}">
+          <button mat-stroked-button class="change-img-button" color="primary" (click)="openDialog()">Change Avatar</button>
+        </div>
+
+        <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+          <div class="sm:col-span-6">
+            <label for="nomStore" class="block text-sm font-medium leading-6 text-gray-900">Nom *</label>
+            <div class="mt-2">
+              <input id="nomStore" name="nomStore" type="email" formControlName="nomStore" autocomplete="nomStore"
+                class="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+              <ng-container *ngFor="let validation of validation_messages.nomStore">
+                <mat-error
+                  *ngIf="registerForm.get('nomStore')?.hasError(validation.type) && (registerForm.get('nomStore')?.dirty || registerForm.get('nomStore')?.touched)">
+                  {{validation.message}}
+                </mat-error>
+              </ng-container>
+            </div>
+          </div>
+
+          <div class="sm:col-span-6">
+            <label for="address" class="block text-sm font-medium leading-6 text-gray-900">Adresse </label>
+            <div class="mt-2">
+              <input id="address" name="address" type="text" formControlName="address" autocomplete="address"
+                class="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div *ngIf="page == 4">
+        <div class="max-w-2xl mx-auto mt-8 p-6 bg-white shadow-md rounded-md">
+          <div class="flex items-center mb-6">
+            <div class="w-12 h-12 overflow-hidden rounded-full">
+              <!-- Display user image -->
+              <img [src]="getImageUrl()" alt="User Image" class="w-full h-full object-cover" />
+            </div>
+            <div class="ml-4">
+              <!-- Display user name -->
+              <h2 class="text-xl font-semibold text-gray-800">{{ registerForm.get("nom")?.value }} {{
+                registerForm.get("prenom")?.value }}</h2>
+              <!-- Display user email -->
+              <p class="text-sm text-gray-600">{{ registerForm.get("email")?.value }}</p>
+            </div>
+          </div>
+
+          <!-- Display personal information -->
+          <div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-2">Personal Details</h3>
+            <!-- Display user's personal details -->
+            <p class="text-sm text-gray-600">Nom: {{ registerForm.get("nom")?.value }}</p>
+            <p class="text-sm text-gray-600">Prénom: {{ registerForm.get("prenom")?.value }}</p>
+            <p class="text-sm text-gray-600">Adresse: {{ registerForm.get("numero")?.value }} {{
+              registerForm.get("rue")?.value }} , {{ registerForm.get("ville")?.value }}</p>
+            <p class="text-sm text-gray-600">Telephone: {{ registerForm.get("telephone")?.value }}</p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-2">Store Details</h3>
+            <div class="flex items-center mb-6">
+              <div class="w-12 h-12 overflow-hidden rounded-full">
+                <!-- Display user image -->
+                <img [src]="'../../../../assets/img/'+ item.avatar" alt="Store Avatar" class="w-full h-full object-cover" />
+              </div>
+              <div class="ml-4">
+                <p class="text-sm text-gray-600">Nom du magasin: {{ registerForm.get("nomStore")?.value }}</p>
+                <p class="text-sm text-gray-600">Adresse du magasin: {{ registerForm.get("addess")?.value }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="flex justify-around">
+      <button type="submit" (click)="backPage()" class="rounded-md px-9 mt-6
+        ms-5  py-2 text-sm font-semibold text-white shadow-sm
+        focus-visible:outline focus-visible:outline-2
+        focus-visible:outline-offset-2 focus-visible:outline-amber-600 " [disabled]="page==1"
+        [class.bg-gray-300]="page==1" [class.bg-primary-color]="page!=1">
+        Retour
+      </button>
+      <button type="submit" (click)="suivant()" class="rounded-md px-9 mt-6
+        ms-5  py-2 text-sm font-semibold text-white shadow-sm
+        focus-visible:outline focus-visible:outline-2
+        focus-visible:outline-offset-2 focus-visible:outline-amber-600 bg-primary-color">
+        <div *ngIf="page!=4">
+          Suivant
+        </div>
+        <div *ngIf="page==4">
+          S'inscrire
+        </div>
+      </button>
+    </div>
+  </form>
+</app-container-form>

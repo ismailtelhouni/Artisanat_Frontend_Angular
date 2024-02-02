@@ -1,0 +1,177 @@
+<form [formGroup]="registerForm" action="" method="post" class="w-75 mx-auto mb-40">
+  <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+    <div class="sm:col-span-2 text-center ">
+      <h1 class="">Ajouter un nouveau produit</h1>
+    </div>
+    <div class="sm:col-span-6">
+      <label for="nom" class="block text-sm font-medium leading-6 text-gray-900">Le nom de produit *</label>
+      <div class="mt-2">
+        <input id="nom" name="nom" type="text" formControlName="nom" autocomplete="nom"
+          class="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-md ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-100 sm:text-sm sm:leading-6">
+        <ng-container *ngFor="let validation of validation_messages.nom">
+          <mat-error
+            *ngIf="registerForm.get('nom')?.hasError(validation.type) && (registerForm.get('nom')?.dirty || registerForm.get('nom')?.touched)">
+            {{validation.message}}
+          </mat-error>
+        </ng-container>
+      </div>
+    </div>
+    <div class="sm:col-span-6">
+      <label for="description" class="block text-sm font-medium leading-6 text-gray-900">La description de produit *</label>
+      <div class="mt-2">
+        <textarea id="description" name="description" formControlName="description" autocomplete="description"
+          class="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-md ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-100 sm:text-sm sm:leading-6"
+          ></textarea>
+        <ng-container *ngFor="let validation of validation_messages.description">
+          <mat-error
+            *ngIf="registerForm.get('description')?.hasError(validation.type) && (registerForm.get('description')?.dirty || registerForm.get('description')?.touched)">
+            {{validation.message}}
+          </mat-error>
+        </ng-container>
+      </div>
+    </div>
+    <div class="sm:col-span-2">
+      <label for="stock" class="block text-sm font-medium leading-6 text-gray-900">La quantité de produit *</label>
+      <div class="mt-2">
+        <input id="stock" name="stock" type="number" formControlName="stock" autocomplete="stock"
+          class="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-md ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-100 sm:text-sm sm:leading-6"
+          />
+        <ng-container *ngFor="let validation of validation_messages.stock">
+          <mat-error
+            *ngIf="registerForm.get('stock')?.hasError(validation.type) && (registerForm.get('stock')?.dirty || registerForm.get('stock')?.touched)">
+            {{validation.message}}
+          </mat-error>
+        </ng-container>
+      </div>
+    </div>
+    <div class="sm:col-span-2">
+      <label for="prix" class="block text-sm font-medium leading-6 text-gray-900">Le prix de produit *</label>
+      <div class="mt-2">
+        <input id="prix" name="prix" type="number" formControlName="prix" autocomplete="prix"
+          class="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-md ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-100 sm:text-sm sm:leading-6"
+          />
+        <ng-container *ngFor="let validation of validation_messages.prix">
+          <mat-error
+            *ngIf="registerForm.get('prix')?.hasError(validation.type) && (registerForm.get('prix')?.dirty || registerForm.get('prix')?.touched)">
+            {{validation.message}}
+          </mat-error>
+        </ng-container>
+      </div>
+    </div>
+    <div class="sm:col-span-2">
+      <label for="poids" class="block text-sm font-medium leading-6 text-gray-900">Le poids de produit *</label>
+      <div class="mt-2">
+        <input id="poids" name="poids" type="number" formControlName="poids" autocomplete="poids"
+          class="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-md ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-100 sm:text-sm sm:leading-6"
+          >
+        <ng-container *ngFor="let validation of validation_messages.poids">
+          <mat-error
+            *ngIf="registerForm.get('poids')?.hasError(validation.type) && (registerForm.get('poids')?.dirty || registerForm.get('poids')?.touched)">
+            {{validation.message}}
+          </mat-error>
+        </ng-container>
+      </div>
+    </div>
+    <div class="sm:col-span-6">
+      <mat-form-field class="w-full">
+        <mat-label>Les catégories</mat-label>
+        <mat-select formControlName="category" multiple  class="border-none bg-transparent">
+          <div *ngFor="let category of categories">
+            <mat-option [value]="category.categoryId">{{ category.nom }}</mat-option>
+          </div>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="sm:col-span-6">
+      <mat-form-field class="w-full">
+        <mat-label>Store</mat-label>
+        <mat-select formControlName="store">
+          <div *ngFor="let store of stores">
+            <mat-option [value]="store.storeId">{{ store.nom }}</mat-option>
+          </div>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="col-span-full">
+      <label for="cover-photo" class="block text-sm font-medium leading-6 text-gray-900">Les images pour un produit *</label>
+      <label for="image"
+        class="relative w-full cursor-pointer rounded-md bg-white font-semibold text-dbc588 focus-within:outline-none focus-within:ring-2 focus-within:text-dbc588 focus-within:text-dbc588 hover:text-indigo-500">
+
+        <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10 h-75">
+          <div class="text-center">
+            <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor"
+              aria-hidden="true">
+              <path fill-rule="evenodd"
+                d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z"
+                clip-rule="evenodd" />
+            </svg>
+            <div class="mt-4 flex text-sm leading-6 text-gray-600">
+              <span>Upload a file</span>
+              <input id="image" name="image" type="file" class="sr-only" multiple
+                (change)="onFileSelected($event)">
+                <ng-container *ngFor="let validation of validation_messages.image">
+                  <mat-error *ngIf="registerForm.get('profile')?.hasError(validation.type) && (registerForm.get('profile')?.dirty || registerForm.get('profile')?.touched)">
+                      {{validation.message}}
+                  </mat-error>
+                </ng-container>
+              <p class="pl-1">or drag and drop</p>
+            </div>
+            <p class="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
+          </div>
+        </div>
+      </label>
+    </div>
+
+    <div class="sm:col-span-3">
+      <label for="dateFabrication" class="block text-sm font-medium leading-6 text-gray-900">La date de fabrication de produit *</label>
+      <div class="mt-2">
+        <mat-form-field class="w-full">
+          <mat-label>Choose a date</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="dateFabrication">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker">
+            <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <ng-container *ngFor="let validation of validation_messages.dateFabrication">
+          <mat-error
+            *ngIf="registerForm.get('dateFabrication')?.hasError(validation.type) && (registerForm.get('dateFabrication')?.dirty || registerForm.get('dateFabrication')?.touched)">
+            {{validation.message}}
+          </mat-error>
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="sm:col-span-3">
+      <label for="datePeremption" class="block text-sm font-medium leading-6 text-gray-900">La date de peremption de produit *</label>
+      <div class="mt-2">
+        <mat-form-field class="w-full ">
+          <mat-label>Choose a date</mat-label>
+          <input matInput [matDatepicker]="picker2" formControlName="datePeremption" >
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker2">
+            <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+        <ng-container *ngFor="let validation of validation_messages.datePeremption">
+          <mat-error
+            *ngIf="( registerForm.get('datePeremption')?.hasError(validation.type) && (registerForm.get('datePeremption')?.dirty || registerForm.get('datePeremption')?.touched ) )">
+            {{validation.message}}
+          </mat-error>
+        </ng-container>
+      </div>
+    </div>
+
+    <button type="submit" (click)="addNewProduct()" class="rounded-md px-9 mt-6
+        ms-5  py-2 text-sm font-semibold text-white shadow-sm
+        focus-visible:outline focus-visible:outline-2
+        focus-visible:outline-offset-2 focus-visible:outline-amber-600 bg-primary-color">
+        Save
+      </button>
+
+  </div>
+</form>

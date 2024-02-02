@@ -1,0 +1,89 @@
+<div class="container px-20">
+
+  <app-dashboard-header></app-dashboard-header>
+
+  <div class="mx-auto max-w-2xl lg:text-center">
+    <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">My Stores</p>
+  </div>
+  <ul role="list" class="divide-y divide-gray-100">
+    <div *ngFor="let store of stores">
+      <li class="flex justify-between gap-x-6 py-5">
+        <div class="flex min-w-0 gap-x-4">
+          <img class="h-12 w-12 flex-none rounded-full bg-gray-50" [src]="store.avatar" alt="">
+          <div class="min-w-0 flex-auto">
+            <p class="text-sm font-semibold leading-6 text-gray-900">{{ store.nom }}</p>
+            <p class="mt-1 truncate text-xs leading-5 text-gray-500">{{ store.adress }}</p>
+          </div>
+        </div>
+        <div class="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
+          <div class="text-sm leading-6 text-gray-900">
+            <div class="mt-2 flex items-center text-sm text-gray-500">
+              <svg class="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                <path d="M144 480C64.5 480 0 415.5 0 336c0-62.8 40.2-116.2 96.2-135.9c-.1-2.7-.2-5.4-.2-8.1c0-88.4 71.6-160 160-160c59.3 0 111 32.2 138.7 80.2C409.9 102 428.3 96 448 96c53 0 96 43 96 96c0 12.2-2.3 23.8-6.4 34.6C596 238.4 640 290.1 640 352c0 70.7-57.3 128-128 128H144zm79-217c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l39-39V392c0 13.3 10.7 24 24 24s24-10.7 24-24V257.9l39 39c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-80-80c-9.4-9.4-24.6-9.4-33.9 0l-80 80z"/>
+              </svg>
+              {{ store.qteProduit }}  products
+            </div>
+          </div>
+          <!-- <p class="mt-1 text-xs leading-5 text-gray-500">Last seen <time datetime="2023-01-23T13:23Z">3h ago</time></p> -->
+        </div>
+      </li>
+    </div>
+    <mat-expansion-panel class="mb-4 shadow-none" hideToggle (closed)="closeExpansionPanel()" (opened)="openExpansionPanel()">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon>add</mat-icon>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-selection-list [multiple]="false">
+        <form [formGroup]="registerForm"  action="" method="post">
+          <li class="flex flex-col justify-between items-start gap-x-6 py-5">
+            <div class="grid grid-cols-7 gap-x-6 gap-y-6 w-full">
+              <div class="flex flex-col items-center justify-center">
+                <img class="img-avatar" src="{{item.avatar}}">
+                <button mat-stroked-button class="change-img-button" color="primary" (click)="openDialog()">Change Avatar</button>
+              </div>
+              <div class="col-start-2 col-end-5">
+                <label for="nom" class="block text-sm font-medium leading-6 text-gray-900">Nom pour store *</label>
+                <div class="mt-2">
+                  <input id="nom" name="nom" type="text" formControlName="nom" autocomplete="nom"
+                    class="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-md ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-100 sm:text-sm sm:leading-6">
+                  <ng-container>
+                    <mat-error
+                      *ngIf=" ( registerForm.get('nom')?.hasError( validation_messages.nom.type ) && ( registerForm.get( 'nom' )?.dirty || registerForm.get( 'nom' )?.touched ) ) || formeInValid ">
+                      {{validation_messages.nom.message}}
+                    </mat-error>
+                  </ng-container>
+                </div>
+              </div>
+              <div class="col-start-5 col-end-8" >
+                <label for="adresse" class="block text-sm font-medium leading-6 text-gray-900">Adresse </label>
+                <div class="mt-2">
+                  <input id="adresse" name="adresse" type="text" formControlName="adresse" autocomplete="adresse"
+                    class="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-md ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-100 sm:text-sm sm:leading-6">
+                </div>
+              </div>
+              <div class="col-start-1">
+                <button
+                  type="button"
+                  (click)="addStore()"
+                  class="inline-flex ms-5 items-center rounded-md bg-primary-color px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                  <svg class="-ml-0.5 mr-1.5 h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                  </svg>
+                  Add
+                </button>
+              </div>
+            </div>
+          </li>
+        </form>
+      </mat-selection-list>
+    </mat-expansion-panel>
+
+
+
+  </ul>
+
+  <app-products-filter></app-products-filter>
+
+
+</div>

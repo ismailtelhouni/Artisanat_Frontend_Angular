@@ -81,4 +81,14 @@
       routerLink="contact-us" (click)="navigateTo('/contact-us')" class="h-pb-32 cursor-pointer me-4 text-base font-normal"> C O N T A C T - U S </a>
     </div>
   </mat-toolbar>
+
+  <div class="md:static md:me-2 fixed end-0">
+    <div *ngIf="!isAuthenticated; else loggedIn" >
+      <button mat-flat-button (click)="navigateTo('/login')" class=" border-1 border-A29262 cursor-pointer rounded-lg px-4 py-2 me-2 hoverbg-e0cb8c hover:text-white">Login</button>
+    </div>
+    <ng-template #loggedIn >
+      <button mat-flat-button (click)="logout()" class=" border-1 border-A29262 cursor-pointer rounded-lg px-4 py-2 me-2 hoverbg-e0cb8c hover:text-white">Logout</button>
+    </ng-template>
+  </div>
+
 </div>

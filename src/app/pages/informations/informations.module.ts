@@ -7,6 +7,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { ReturnsExchangesComponent } from './returns-exchanges/returns-exchanges.component';
 import { TermsConditionsComponent } from './terms-conditions/terms-conditions.component';
+import { InformationsRoutingModule } from './informations-routing.module';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -30,6 +31,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   imports: [
     CommonModule,
+    InformationsRoutingModule
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

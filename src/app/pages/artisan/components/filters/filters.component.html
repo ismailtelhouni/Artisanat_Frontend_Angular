@@ -1,0 +1,20 @@
+<mat-expansion-panel *ngIf="categories" class="mb-4">
+  <mat-expansion-panel-header>
+    <mat-panel-title> CATEGORIES </mat-panel-title>
+  </mat-expansion-panel-header>
+  <mat-selection-list [multiple]="false">
+    <mat-list-item *ngFor="let category of categories" [ngStyle]="{'background-color': currentCategory === category.nom ? '#f2f2f2' : '','padding':0}" class="px-0 m-0">
+      <button class="p-0 m-0 w-full h-full" (click)="onShowCategory(category.nom)">{{ category.nom }}</button>
+    </mat-list-item>
+  </mat-selection-list>
+</mat-expansion-panel>
+<mat-expansion-panel class="mb-4">
+  <mat-expansion-panel-header>
+    <mat-panel-title> SORT BY </mat-panel-title>
+  </mat-expansion-panel-header>
+  <mat-selection-list [multiple]="false">
+    <button class="p-2 m-0 w-full h-full hover:bg-gray-100" > desc</button>
+    <button class="p-2 m-0 w-full h-full hover:bg-gray-100" > asc</button>
+
+  </mat-selection-list>
+</mat-expansion-panel>

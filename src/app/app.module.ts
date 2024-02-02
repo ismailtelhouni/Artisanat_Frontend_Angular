@@ -12,6 +12,8 @@ import { PagesModule } from './pages/pages.module';
 import { AuthModule } from './pages/auth/auth.module';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from '@angular/common';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
@@ -36,6 +38,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     RouterModule,
     AppRoutingModule,
     SharedModule,
@@ -51,6 +54,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       },
     }),
     AuthModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

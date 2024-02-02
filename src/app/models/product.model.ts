@@ -1,3 +1,5 @@
+import { StoreData } from "./store.model";
+
 export interface Product {
     id: string;
     nom: string;
@@ -19,4 +21,19 @@ export interface Product {
         path: string;
     }>;
     quantity?: number|0;
+}
+
+export interface ProductData {
+
+  produitId: number;
+  nom: string;
+  prix: number;
+  description:string;
+  images:ImageData[];
+  stock:number;
+  store:StoreData;
+}
+
+export interface ImageData {
+  path:string
 }

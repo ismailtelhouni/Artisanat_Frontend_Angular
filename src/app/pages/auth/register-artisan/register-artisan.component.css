@@ -1,0 +1,22 @@
+.text-dbc588{
+
+  color: #dbc588;
+
+}
+.bg-primary-color{
+
+  background-color: #dbc588;
+
+}
+.img-avatar {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  display: block;
+  margin: 20px auto;
+}
+
+.change-img-button {
+  display: block;
+  margin: 0px auto;
+}
