@@ -1,6 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { UserData } from 'src/app/models/auth.model';
 import { Cart, CartItem } from 'src/app/models/cart.model';
+import { AuthService } from 'src/app/services/auth/auth.service';
+import { UserDataService } from 'src/app/services/auth/user-data.service';
 import { CartService } from 'src/app/services/utils/cart.service';
 
 @Component({
@@ -8,7 +12,11 @@ import { CartService } from 'src/app/services/utils/cart.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
+
+  user!:any
+
+  isAuthenticated: boolean = false;
 
   private _cart: Cart = {items:[]};
   itemQuantity = 0;
@@ -26,7 +34,20 @@ export class HeaderComponent {
       .reduce((prev,current)=>prev + current , 0);
   }
 
-  constructor(private router: Router, private cartService:CartService) {}
+  ngOnInit(): void {
+    this.service.isAuthenticated$.subscribe((isAuthenticated)=>{
+      this.isAuthenticated = isAuthenticated;
+    })
+    this.isAuthenticated = this.service.isUserAuthenticated();
+  }
+
+  constructor(
+    private router: Router,
+    private cartService:CartService,
+    private userDataService : UserDataService,
+    private service : AuthService,
+    private toaster:ToastrService,
+    ) {}
   navigateTo( route: string ): void {
     this.router.navigate([ route ]);
   }
@@ -41,6 +62,34 @@ export class HeaderComponent {
 
   isCurrentRoute(route: string): boolean {
     return this.router.url === route;
+  }
+
+
+  getUser(){
+
+    this.user = this.userDataService.getUserData()
+    console.log(this.user)
+
+  }
+
+  logout(){
+
+    this.service.logout().subscribe(data =>{
+
+      console.log(data)
+      const D = data as { message : string }
+      this.toaster.error("Logout ", D.message )
+      this.navigateTo("/login")
+
+    },error =>{
+
+      this.toaster.error(error.error.text)
+
+      // this.isLoggingIn = false
+      // this.spinner.hide()
+
+    })
+
   }
 
 }

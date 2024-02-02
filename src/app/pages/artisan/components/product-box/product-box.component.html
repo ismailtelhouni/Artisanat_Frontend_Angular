@@ -1,0 +1,15 @@
+<mat-card>
+  <div class="h-full">
+    <app-carousel-image [images]="produit?.images" ></app-carousel-image>
+  </div>
+  <div class="ms-3 mt-2 flex items-center mb-3">
+    <div class="w-9 me-2">
+      <img [src]="produit?.store?.avatar" class="rounded-full p-0.5 w-full h-auto" alt="Rounded Image">
+    </div>
+    <div class=" font-semibold text-gray-800" >{{ produit?.store?.nom }}</div>
+  </div>
+  <div class="flex justify-around mb-2">
+    <div class="text-red-400">{{ produit?.prix }}$</div>
+    <div > <span class="font-semibold text-gray-800 pe-2">Qte :</span> {{ produit?.stock }}</div>
+  </div>
+</mat-card>

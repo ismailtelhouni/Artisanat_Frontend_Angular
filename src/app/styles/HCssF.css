@@ -430,6 +430,30 @@
 .h-h-10{
     height: 10px;
 }
+.h-h-20{
+    height: 20px;
+}
+.h-h-30{
+    height: 30px;
+}
+.h-h-40{
+    height: 40px;
+}
+.h-h-50{
+    height: 50px;
+}
+.h-h-60{
+    height: 60px;
+}
+.h-h-70{
+    height: 70px;
+}
+.h-h-80{
+    height: 80px;
+}
+.h-h-90{
+    height: 90px;
+}
 
 .h-h-100{
     height: 100px;
@@ -499,4 +523,12 @@
 
   .h-card-3 {
     flex: 0 0 33.33%;
+  }
+
+  .h-tu{
+    text-transform: uppercase;
+  }
+
+  .h-tl{
+    text-transform: lowercase !important;
   }

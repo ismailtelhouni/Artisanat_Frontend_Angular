@@ -10,4 +10,9 @@ export class NavigationService {
   navigateTo(route: string): void {
     this.router.navigate([route]);
   }
+
+  navigateToParam(route: string,data: any): void {
+    this.router.navigate([route], { state: { customData: data } });
+  }
+
 }

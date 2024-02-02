@@ -1,0 +1,43 @@
+.product-details{
+    margin-top: 50px;
+    margin-bottom: 80px;
+    max-width: 100%;
+}
+.product-details .product-img{
+    width: 100%;
+    height: 400px;
+    object-fit: contain;
+}
+.product-color{
+    border: 3px solid #000;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.quantity-group{
+    margin-top: 20px;
+}
+.quantity-group button{
+    padding: 10px;
+}
+.quantity-group input{
+    padding: 10px;
+    width: 50px;
+}
+
+.form-button {
+    background-color: #F9F7F8; /* Green background color */
+    color: #9C8B58; /* White text color */
+    padding: 10px 20px; /* Padding for better visual */
+    font-size: 16px; /* Font size */
+    border: none; /* No border */
+    cursor: pointer; /* Cursor style */
+    border-radius: 5px; /* Rounded corners */
+    margin-right: 20px;
+    box-shadow:1px 1px 1px 1px #9C8B58;
+}
+
+/* Hover effect */
+.form-button:hover {
+    background-color: #ebebeb; /* Darker green on hover */
+}

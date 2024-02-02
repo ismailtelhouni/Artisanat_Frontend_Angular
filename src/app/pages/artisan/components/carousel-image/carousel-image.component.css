@@ -1,0 +1,11 @@
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.image-container img {
+  transition: transform 0.5s;
+  width: 200px;
+  height: 200px;
+}

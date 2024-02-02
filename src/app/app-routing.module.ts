@@ -1,15 +1,14 @@
+import { RegisterArtisanComponent } from './pages/auth/register-artisan/register-artisan.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductsComponent } from './pages/products/products.component';
 import { CartComponent } from './pages/cart/cart.component';
-import { AboutUsComponent } from './pages/informations/about-us/about-us.component';
-import { ContactUsComponent } from './pages/informations/contact-us/contact-us.component';
-import { BlogComponent } from './pages/informations/blog/blog.component';
-import { CareInstructionComponent } from './pages/informations/care-instruction/care-instruction.component';
-import { TermsConditionsComponent } from './pages/informations/terms-conditions/terms-conditions.component';
-import { ReturnsExchangesComponent } from './pages/informations/returns-exchanges/returns-exchanges.component';
-import { PrivacyPolicyComponent } from './pages/informations/privacy-policy/privacy-policy.component';
 import { HomeComponent } from './pages/home/home.component';
+import { UploadComponent } from './components/upload/upload.component';
+import { OneProductComponent } from './pages/one-product/one-product.component';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { LoginComponent } from './pages/auth/login/login.component';
+import { RegisterComponent } from './pages/auth/register/register.component';
 
 const routes: Routes = [
   {
@@ -26,32 +25,35 @@ const routes: Routes = [
   },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   {
-    path:"about-us",
-    component:AboutUsComponent
+    path:'login',
+    component:LoginComponent
   },
   {
-    path:"contact-us",
-    component:ContactUsComponent
+    path:'register',
+    component:RegisterComponent
   },
   {
-    path:"blog",
-    component:BlogComponent
+    path:'register-artisan',
+    component:RegisterArtisanComponent
   },
   {
-    path:"care-instruction",
-    component:CareInstructionComponent
+    path:"",
+    loadChildren: ()=> import("./pages/informations/informations.module").then(m=>m.InformationsModule)
   },
   {
-    path:"terms-conditions",
-    component:TermsConditionsComponent
+    path:"artisan",
+    loadChildren:()=> import("./pages/artisan/artisan.module").then(m=>m.ArtisanModule)
   },
   {
-    path:"returns-exchanges",
-    component:ReturnsExchangesComponent
+    path:"upload",
+    component:UploadComponent
+  },{
+    path:"one-product",
+    component:OneProductComponent
   },
-  {
-    path:"privacy-policy",
-    component:PrivacyPolicyComponent
+  { 
+    path:"checkout", 
+    component:CheckoutComponent 
   },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];
