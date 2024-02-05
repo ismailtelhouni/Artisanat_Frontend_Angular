@@ -7,6 +7,7 @@ import { environment } from '../../../environments/environment';
 export class BackendConfigService {
     private backendHost: string = environment.backendHost;
     private productsHost: string = environment.productsHost;
+    private usersHost: string = environment.usersHost;
     
     getBackendHost(): string {
       return this.backendHost;
@@ -14,5 +15,10 @@ export class BackendConfigService {
 
     getProductsHost(): string {
       return this.productsHost;
+    }
+
+
+    getUsersHost(): string {
+      return this.usersHost;
     }
 }

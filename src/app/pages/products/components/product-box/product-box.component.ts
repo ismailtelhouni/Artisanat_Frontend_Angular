@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
+import { CategoryData } from 'src/app/models/category.model';
 import { Product } from 'src/app/models/product.model';
 
 @Component({
@@ -13,18 +14,18 @@ export class ProductBoxComponent {
   @Input() nom = "";
   @Input() description = "";
   @Input() prix = 0;
-  @Input() store ={
+  @Input() store:any ={
       id: 1,
       nom: "",
       adress: "",
       telephone: "",
   };
-  @Input() categories = [{
+  @Input() categories:any = [{
     id: 1,
     nom: "",
     description: ""
   }];
-  @Input() images = [{
+  @Input() images:any = [{
     id: 1,
     path: "",
   }];

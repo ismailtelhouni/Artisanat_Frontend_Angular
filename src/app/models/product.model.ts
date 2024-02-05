@@ -3,7 +3,7 @@ import { StoreData } from "./store.model";
 export interface Product {
     id: string;
     nom: string;
-    store: {
+    store?: {
         id: number;
         nom: string;
         adress: string|"";
@@ -13,7 +13,7 @@ export interface Product {
     categories: Array<{
         id: number;
         nom: string;
-        description:string;
+        description:string|"";
     }>;
     description:string;
     images: Array<{

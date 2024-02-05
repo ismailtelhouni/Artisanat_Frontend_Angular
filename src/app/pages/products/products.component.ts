@@ -53,8 +53,15 @@ export class ProductsComponent {
   }
 
   onAddToCart(product: Product){
+
+    let imagePath:any = '';
+    if (product && product.images && product.images.length > 0) {
+      imagePath = product.images[0].path;
+      // Now you can safely use imagePath
+    }
+
     this.cartService.addToCart({
-      product:product.images[0].path,
+      product:imagePath,
       name:product.nom,
       prix: product.prix,
       quantity: 1,

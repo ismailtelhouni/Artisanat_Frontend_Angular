@@ -83,7 +83,7 @@ export class OneProductComponent {
         this.productData = product;
         console.log("product details: ",product);
       });
-    console.log("productis: ",this.productId);
+    console.log("productid: ",this.productId);
   }
 
 
@@ -137,14 +137,21 @@ export class OneProductComponent {
 //   }
 
 
-getImageSrc(image: { id: number; path: string } | undefined): string {
+getImageSrc(image: any| { id: number; path: string } | undefined): string {
   // Check if the image is defined before accessing its properties
   return image ? `http://localhost:8080/Pf_Artis/${image.path}` : '';
 }
 
 onAddToCart(product: Product){
+
+  let imagePath:any = '';
+    if (product && product.images && product.images.length > 0) {
+      imagePath = product.images[0].path;
+      // Now you can safely use imagePath
+    }
+
   this.cartService.addToCart({
-    product:product.images[0].path,
+    product:imagePath,
     name:product.nom,
     prix: product.prix,
     quantity: this.productQuantity,

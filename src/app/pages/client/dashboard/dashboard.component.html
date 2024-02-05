@@ -1,0 +1,56 @@
+<div class="dashboard flex container row d-flex flex-column align-items-center">
+    <div class="col-md-10 row">
+        <div class="col-md-12 mt-8">
+            <p class="fs-34 fw-500">My account</p>
+        </div>
+
+        <div class="col-md-6 mt-5 flex flex-column gap-5">
+            <p class="fs-30 fw-500">Order History</p>
+            <div *ngIf="currentClient.commandes && currentClient.commandes.length > 0; else noCommandes" class="commandes-container">
+                <div *ngFor="let commande of currentClient.commandes" class="commande-card">
+                    <mat-card>
+                    <mat-card-header>
+                        <mat-card-title>Commande #{{ commande.commandeId }}</mat-card-title>
+                        <mat-card-subtitle>{{ commande.date_commande | date }}</mat-card-subtitle>
+                    </mat-card-header>
+                    
+                    <mat-card-content>
+                        <div *ngFor="let ligneCommande of commande.ligneCommandes" class="ligne-commande">
+                        <p>{{ ligneCommande.produit.nom }}</p>
+                        <p>Quantité: {{ ligneCommande.quantite }}</p>
+                        </div>
+                    </mat-card-content>
+                    </mat-card>
+                </div>
+            </div>
+            <ng-template #noCommandes>
+                <p class="order-desc fs-22">You haven't placed any orders yet.</p>
+            </ng-template>
+        </div>
+
+
+        <div class="col-md-6">
+            <div class="max-w-2xl l-8 mt-4 mb-4 p-6 bg-white shadow-md rounded-md">
+                <div class="flex items-center mb-6">
+                <div class="w-12 h-12 overflow-hidden rounded-full">
+                    <img [src]="getImageSrc(currentClient.profile)" alt="User Image" class="w-full h-full object-cover" />
+                </div>
+                <div class="ml-4">
+                    <h2 class="text-xl font-semibold text-gray-800">{{ currentClient.nom }} {{ currentClient.prenom }}</h2>
+                    <p class="text-sm text-gray-500">test mail</p>
+                </div>
+                </div>
+            
+                <div>
+                <h3 class="text-lg font-semibold text-gray-800 mb-2">Personal Details</h3>
+            
+                <p class="text-sm text-gray-600">Nom: {{ currentClient.nom }}</p>
+                <p class="text-sm text-gray-600">Prénom: {{ currentClient.prenom }}</p>
+                <p class="text-sm text-gray-600">Adresse: 15 id elhaj</p>
+                <p class="text-sm text-gray-600">Telephone: 0619816342</p>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</div>

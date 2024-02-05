@@ -9,7 +9,7 @@
         [ngClass]="{'pb-8 flex flex-col justify-between h-[200px] p-4':fullWidthMode}"
         >
             <div (click)="navigateTo(product.id)">
-                <h5 style="text-transform: uppercase;" class="h-tu">{{this.product.store.nom}}</h5>
+                <h5 style="text-transform: uppercase;" class="h-tu">{{this.product.store?.nom}}</h5>
                 <p style="text-transform: uppercase;" class="truncate hover:whitespace-normal">{{this.product.nom}}</p>
                 <p *ngIf="fullWidthMode"> {{this.product.description}} Use with your favorite wax melts or essential oils, this ceramic oil burner is handmade in a simple, minimalistic style with a subtle gold rim finish.  Use this burner to slowly diffuse a scent into your home in any room of your choice. Makes for a great gift to friends and family.</p>
             </div>
