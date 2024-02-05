@@ -15,7 +15,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';;
 
 
 
@@ -54,7 +54,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       },
     }),
     AuthModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

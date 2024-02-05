@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BehaviorSubject } from 'rxjs';
 import { Cart, CartItem } from 'src/app/models/cart.model';
+import { UserDataService } from '../auth/user-data.service';
+import { DatePipe } from '@angular/common';
 
 
 @Injectable({
@@ -10,7 +12,13 @@ import { Cart, CartItem } from 'src/app/models/cart.model';
 export class CartService {
 
   cart = new BehaviorSubject<Cart>({items:[]});
-  constructor(private _snackBar:MatSnackBar) { }
+
+  private datePipe = new DatePipe('en-US');
+
+  constructor(
+    private _snackBar:MatSnackBar,
+    private userDataService:UserDataService
+    ) { }
 
   addToCart(item:CartItem):void{
     const items = [...this.cart.value.items];
@@ -72,6 +80,23 @@ export class CartService {
         this._snackBar.open('Item quantity -1.','ok',{duration:3000});
       }
     }
+  }
+
+
+
+  getOrderPayload(): any {
+    const orderPayload = {
+      date_commande: this.datePipe.transform(new Date(), 'yyyy-MM-dd HH:mm:ss'),
+      user: this.userDataService.getUserData()?.userId, // Replace with the actual user ID
+      ligneCommandes: this.cart.value.items.map(item => {
+        return {
+          produit: { produitId: parseInt(item.id, 10) },
+          prixUnitaire: item.prix,
+          quantite: item.quantity
+        };
+      })
+    };
+    return orderPayload;
   }
 
 

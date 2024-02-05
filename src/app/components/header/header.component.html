@@ -16,7 +16,8 @@
         <img src="../../../assets/img/artis.PNG" alt="" srcset="" width="300">
       </a>
 
-      <div class="w-[120px]">
+      <div class="d-flex align-items-center justify-content-center mr-5">
+      <div class="w-[50px]">
         <button mat-icon-button [matMenuTriggerFor]="menu">
           <mat-icon
           [matBadge]="itemQuantity"
@@ -63,6 +64,29 @@
           </div>
         </mat-menu>
       </div>
+
+      <button mat-icon-button [matMenuTriggerFor]="profileMenu">
+        <mat-icon
+          [matBadge]="notificationCount"
+          [matBadgeHidden]="!notificationCount"
+          [matBadgeColor]="'warn'"
+          [color]="'blue'"
+        >
+          person
+        </mat-icon>
+      </button>
+      <mat-menu #profileMenu="matMenu">
+        <div class="p-2" *ngIf="!isAuthenticated; else loggedIn" >
+          <button mat-flat-button (click)="navigateTo('/login')" class=" border-1 border-A29262 cursor-pointer rounded-lg px-4 py-2 ms-2 hoverbg-e0cb8c hover:text-white">Login</button>
+          <button mat-flat-button (click)="openChoiceModal()" class=" border-1 border-A29262 cursor-pointer rounded-lg px-4 py-2 me-2 hoverbg-e0cb8c hover:text-white">SignUp</button>
+        </div>
+        <ng-template #loggedIn >
+          <!-- Add menu items for profile options -->
+          <button mat-flat-button (click)="navigateTo('/client/dashboard')">View Profile</button>
+          <button mat-flat-button (click)="logout()">Logout</button>
+        </ng-template>
+      </mat-menu>
+      </div>
     </div>
     <div class="p-0 m-0" [ngStyle]="{'z-index':'1600'}">
       <a 
@@ -81,14 +105,5 @@
       routerLink="contact-us" (click)="navigateTo('/contact-us')" class="h-pb-32 cursor-pointer me-4 text-base font-normal"> C O N T A C T - U S </a>
     </div>
   </mat-toolbar>
-
-  <div class="md:static md:me-2 fixed end-0">
-    <div *ngIf="!isAuthenticated; else loggedIn" >
-      <button mat-flat-button (click)="navigateTo('/login')" class=" border-1 border-A29262 cursor-pointer rounded-lg px-4 py-2 me-2 hoverbg-e0cb8c hover:text-white">Login</button>
-    </div>
-    <ng-template #loggedIn >
-      <button mat-flat-button (click)="logout()" class=" border-1 border-A29262 cursor-pointer rounded-lg px-4 py-2 me-2 hoverbg-e0cb8c hover:text-white">Logout</button>
-    </ng-template>
-  </div>
 
 </div>

@@ -74,7 +74,7 @@ export class UserDataService {
     return this.http.get(apiUrl,options);
 
   }
-
+  
   getUserCurrent(){
 
     const apiUrl = `${this.backendHost}/api/users/userData`;
@@ -91,4 +91,12 @@ export class UserDataService {
 
   }
 
+  getUserById(userId:number|undefined): Observable<any> {
+      
+    const backendHost = this.backendConfigService.getUsersHost();
+    const apiUrl = `${backendHost}/api/users/id/${userId}`;
+
+    console.log ("user: ", this.http.get(apiUrl));
+    return this.http.get(apiUrl);
+  }
 }
