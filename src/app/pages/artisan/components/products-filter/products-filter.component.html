@@ -18,6 +18,15 @@
           <app-product-box [produit]="produit" ></app-product-box>
         </div>
       </div>
+      <mat-paginator
+        hidePageSize="true"
+        pageSize="8"
+        [length]="qteProduit"
+        [pageSizeOptions]="[10, 50, 100]"
+        aria-label="Select page"
+        (page)="handlePageEvent($event)"
+        >
+      </mat-paginator>
 
     </mat-card>
   </div>

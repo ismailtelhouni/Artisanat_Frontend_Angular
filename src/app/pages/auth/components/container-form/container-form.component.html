@@ -1,10 +1,23 @@
-<div class="container mx-auto px-10 my-20">
+<!-- <div class="container mx-auto px-10 my-20">
   <div class="flex flex-row ">
-    <div class="basis-1/2">
+    <div class="basis-1/4">
       <img [src]="imagetest"  alt="" class="w-1/2">
     </div>
-    <div class="basis-1/2 flex flex-col justify-center items-center">
+    <div class="basis-3/4 flex flex-col justify-center items-center">
       <ng-content></ng-content>
     </div>
   </div>
+</div> -->
+<div class="container my-20">
+  <div class="bg-white">
+    <div class="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-16 px-4 py-24 sm:px-6 sm:py-32 lg:max-w-7xl lg:grid-cols-3 lg:px-8">
+      <div class="col-span-1">
+        <img [src]="imagetest"  alt="" class="lg:w-3/4 w-1/2" >
+      </div>
+      <div class="col-span-1 lg:col-span-2">
+        <ng-content></ng-content>
+      </div>
+    </div>
+  </div>
+
 </div>

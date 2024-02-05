@@ -14,12 +14,13 @@ export interface User {
   userId: number,
   nom: string,
   prenom: string,
-  ville:String,
-  numero:String,
-  rue:String,
+  ville:string,
+  numero:string,
+  rue:string,
   telephone: string,
-  email:String,
-  token:String,
+  email:string,
+  token:string,
+  profile:string
 }
 
 export interface Register {

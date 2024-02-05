@@ -74,7 +74,22 @@ export class UserDataService {
     return this.http.get(apiUrl,options);
 
   }
+  
+  getUserCurrent(){
 
+    const apiUrl = `${this.backendHost}/api/users/userData`;
+
+
+    const token = this.getUserData()?.token ;
+
+    const options = {
+      headers: {
+          'Authorization': 'Bearer ' + token,  // Adjust based on your token mechanism
+          },
+      };
+    return this.http.get(apiUrl,options);
+
+  }
 
   getUserById(userId:number|undefined): Observable<any> {
       
