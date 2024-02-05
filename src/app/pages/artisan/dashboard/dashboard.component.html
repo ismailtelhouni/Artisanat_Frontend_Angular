@@ -2,11 +2,9 @@
 
   <app-dashboard-header></app-dashboard-header>
 
-  <div class="mx-auto max-w-2xl lg:text-center">
-    <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">My Stores</p>
-  </div>
+
   <ul role="list" class="divide-y divide-gray-100">
-    <div *ngFor="let store of stores">
+    <!-- <div *ngFor="let store of stores">
       <li class="flex justify-between gap-x-6 py-5">
         <div class="flex min-w-0 gap-x-4">
           <img class="h-12 w-12 flex-none rounded-full bg-gray-50" [src]="store.avatar" alt="">
@@ -24,10 +22,9 @@
               {{ store.qteProduit }}  products
             </div>
           </div>
-          <!-- <p class="mt-1 text-xs leading-5 text-gray-500">Last seen <time datetime="2023-01-23T13:23Z">3h ago</time></p> -->
         </div>
       </li>
-    </div>
+    </div> -->
     <mat-expansion-panel class="mb-4 shadow-none" hideToggle (closed)="closeExpansionPanel()" (opened)="openExpansionPanel()">
       <mat-expansion-panel-header>
         <mat-panel-title>
@@ -78,7 +75,25 @@
         </form>
       </mat-selection-list>
     </mat-expansion-panel>
-
+    <div class="flex flex-row justify-content-between p-0 ">
+      <div class="col-md-6 w-3/4" >
+        <div class="card w-100">
+          <div class="card-body">
+              <canvas id="myChart" class="w-100 h-100 canvas"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class=" w-1/4">
+        <div *ngFor="let commande of commandes" >
+          <div class="card">
+            <div class="card-body">
+              <p class="card-text">Nom du produit : {{ commande.nomProduit }}</p>
+              <p class="card-text">Date de commande : {{ commande.date_commande }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
   </ul>

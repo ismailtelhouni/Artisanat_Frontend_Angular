@@ -18,7 +18,9 @@
             <div *ngIf="page != 1">
               <span class="me-2">1</span>
             </div>
-            Informations <span class="sm:ms-2"> du</span> <span class="hidden sm:inline-flex sm:ms-2"> compte</span>
+            <div>
+              Informations <span class="sm:ms-2"> du</span> <span class="hidden sm:inline-flex sm:ms-2"> compte</span>
+            </div>
           </span>
         </li>
         <li
@@ -36,7 +38,9 @@
             <div *ngIf="page != 2">
               <span class="me-2">2</span>
             </div>
-            Informations <span class="hidden sm:inline-flex sm:ms-2">personnelles</span>
+            <div>
+              Informations <span class="hidden sm:inline-flex sm:ms-2">personnelles</span>
+            </div>
           </span>
         </li>
         <li
@@ -54,10 +58,12 @@
             <div *ngIf="page != 3">
               <span class="me-2">3</span>
             </div>
-            Informations
-            <span class="sm:ms-2">sur</span>
-            <span class="sm:ms-2">le</span>
-            <span class="hidden sm:inline-flex sm:ms-2"> store</span>
+            <div>
+              Informations
+              <span class="sm:ms-2">sur</span>
+
+              <span class="hidden sm:inline-flex sm:ms-2"> le store</span>
+            </div>
           </span>
         </li>
         <li class="flex items-center" [class.text-dbc588]="page==4">

@@ -37,3 +37,13 @@ export interface ProductData {
 export interface ImageData {
   path:string
 }
+
+export interface Qte {
+  qte:number
+}
+
+export interface Commande {
+  commandeId:number,
+  date_commande:string,
+  nomProduit:string
+}

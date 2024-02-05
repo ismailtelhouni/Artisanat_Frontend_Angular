@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ArtisanRoutingModule } from './artisan-routing.module';
 import { MatCardModule } from '@angular/material/card';
@@ -19,6 +19,7 @@ import { MatInputModule } from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import {MatPaginatorIntl, MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,11 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatSelectModule,
     MatFormFieldModule,
     MatDatepickerModule,
-    MatNativeDateModule
-  ]
+    MatNativeDateModule,
+    MatPaginatorModule
+  ],
+  providers: [
+    DatePipe
+  ],
 })
 export class ArtisanModule { }

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ProductData } from 'src/app/models/product.model';
 
 @Component({
@@ -6,8 +6,12 @@ import { ProductData } from 'src/app/models/product.model';
   templateUrl: './product-box.component.html',
   styleUrls: ['./product-box.component.css']
 })
-export class ProductBoxComponent {
+export class ProductBoxComponent implements OnInit {
 
   @Input() produit :ProductData|undefined;
+
+  ngOnInit(): void {
+      console.log("produit .......... : ",this.produit)
+  }
 
 }

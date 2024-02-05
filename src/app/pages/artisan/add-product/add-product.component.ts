@@ -1,7 +1,9 @@
+import { DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { CategoryData } from 'src/app/models/category.model';
+import { ProductData } from 'src/app/models/product.model';
 import { StoreData } from 'src/app/models/store.model';
 import { CategoryDataService } from 'src/app/services/apis/category-data.service';
 import { ProductsService } from 'src/app/services/apis/products.service';
@@ -71,6 +73,7 @@ export class AddProductComponent {
     private categoryDataService: CategoryDataService,
     private storeService:StoresService,
     private produitService:ProductsService,
+    private datePipe: DatePipe
   ){}
 
   ngOnInit(): void {
@@ -139,7 +142,14 @@ export class AddProductComponent {
 
   addNewProduct(){
     console.log(this.registerForm.value)
-    console.log(this.registerForm.get('datePeremption')?.value)
+    console.log( "this.registerForm.get('nom')?.valid : " , this.registerForm.get('nom')?.valid)
+    console.log( "this.registerForm.get('description')?.valid : " , this.registerForm.get('description')?.valid)
+    console.log( "this.registerForm.get('stock')?.valid : " , this.registerForm.get('stock')?.valid)
+    console.log( "this.registerForm.get('prix')?.valid : " , this.registerForm.get('prix')?.valid)
+    console.log( "this.registerForm.get('poids')?.valid : " , this.registerForm.get('poids')?.valid)
+    console.log( "this.registerForm.get('store')?.valid : " , this.registerForm.get('store')?.valid)
+    console.log( "this.registerForm.get('datePeremption')?.valid : " , this.registerForm.get('datePeremption')?.valid)
+    console.log( "this.registerForm.get('dateFabrication')?.valid : " , this.registerForm.get('dateFabrication')?.valid)
 
     if(
         this.registerForm.get('nom')?.valid &&
@@ -151,25 +161,47 @@ export class AddProductComponent {
         this.registerForm.get('datePeremption')?.valid &&
         this.registerForm.get('dateFabrication')?.valid
       ){
-        console.log(this.registerForm.value)
         const formData = new FormData();
+        console.log("dataaaaaaaaaaaaaaaaadaaaaaaasaaaaaa")
+        if ( this.selectedFile   ) {
 
-        if ( Array.isArray(this.selectedFile) ) {
-          console.log(this.selectedFile )
-          this.selectedFile.map((file)=>{
-            formData.append('profile', file, file.name);
-          })
+          for (const file of this.selectedFile) {
+            formData.append('image', file, file.name);
+          }
           formData.append('nom', this.registerForm.value.nom );
           formData.append('description', this.registerForm.value.description );
           formData.append('stock', this.registerForm.value.stock );
           formData.append('prix', this.registerForm.value.prix );
           formData.append('poids', this.registerForm.value.poids );
           formData.append('category', this.registerForm.value.category );
-          formData.append('store', this.registerForm.value.store );
-          formData.append('datePeremption', this.registerForm.value.datePeremption );
-          formData.append('dateFabrication', this.registerForm.value.dateFabrication );
+          formData.append('storeId', this.registerForm.value.store );
 
+          const datePeremption = new Date(this.registerForm.value.datePeremption);
+          const dateFabrication = new Date(this.registerForm.value.dateFabrication);
+          const datePeremptionData = this.datePipe.transform(datePeremption, 'yyyy-MM-dd HH:mm:ss');
+          const dateFabricationData = this.datePipe.transform(dateFabrication, 'yyyy-MM-dd HH:mm:ss');
+          console.log(dateFabricationData)
+          console.log(datePeremptionData)
+          if(dateFabricationData && datePeremptionData)
+          {
+            formData.append('date_peremption', datePeremptionData );
+            formData.append('date_fabrication', dateFabricationData );
+          }
 
+          console.log("dataaaaaaaaaaaaaaaaadaaaaaaasaaaaaa")
+
+          this.produitService.setProduct(formData).subscribe((data : any) => {
+
+            console.log("dataaaaaaaaaa : ",data)
+            const product = data as ProductData ;
+            if(product.produitId != null){
+              this.toaster.success(" Success " , " Add Success ")
+              this.navigation.navigateTo("/artisan/dashboard")
+            }
+          },
+          (error:any) => {
+            console.error('Error fetching data:', error);
+          })
 
         }else{
 

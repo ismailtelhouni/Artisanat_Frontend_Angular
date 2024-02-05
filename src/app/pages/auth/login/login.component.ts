@@ -69,8 +69,14 @@ export class LoginComponent implements OnInit {
         console.log("tokennnnnnnnnnnnn",userData.token)
         console.log("roooooole",userData.role)
         console.log("storageeeeeeeeee",this.userDataService.getUserData())
-        this.toaster.success(" Success " , " Login Success ")
-        this.navigation.navigateTo("/home")
+        if(userData.role == "ROLE_ARTISAN"){
+          this.toaster.success(" Success " , " Login Success ")
+          this.navigation.navigateTo("/artisan/dashboard")
+        }else{
+          this.toaster.success(" Success " , " Login Success ")
+          this.navigation.navigateTo("/home")
+        }
+
 
       }else{
 
