@@ -8,3 +8,15 @@
 .page-wrapper{
     /* box-shadow: 0 8px 6px -6px #999, 0 -8px 6px -6px #999; */
 }
+
+.btn-main{
+    background-color: blanchedalmond;
+}
+
+.form-group{
+    color: red;
+}
+
+.form-group label{
+    color: #212529;
+}

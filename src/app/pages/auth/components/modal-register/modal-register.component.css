@@ -3,3 +3,8 @@
   background-color: #e0cb8c;
 
 }
+
+.modal{
+  position: absolute;
+  z-index: 200000;
+}

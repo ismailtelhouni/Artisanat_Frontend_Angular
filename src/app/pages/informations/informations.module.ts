@@ -31,7 +31,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   imports: [
     CommonModule,
-    InformationsRoutingModule
+    InformationsRoutingModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

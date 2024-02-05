@@ -9,6 +9,9 @@ import { LanguageSelectComponent } from './language-select/language-select.compo
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpLoaderFactory } from '../app.module';
 import { HttpClient } from '@angular/common/http';
+import { PaymentComponent } from './test/payment/payment.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -18,6 +21,7 @@ import { HttpClient } from '@angular/common/http';
     UploadComponent,
     TopBarComponent,
     LanguageSelectComponent,
+    PaymentComponent,
   ],
   imports: [
     SharedModule,
@@ -28,12 +32,16 @@ import { HttpClient } from '@angular/common/http';
         deps: [HttpClient],
       },
     }),
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    FormsModule,
   ],
   exports: [
     HeaderComponent,
     FooterComponent,
     TestComponent,
-    TopBarComponent
+    TopBarComponent,
+    PaymentComponent
   ]
 })
 export class ComponentsModule { }

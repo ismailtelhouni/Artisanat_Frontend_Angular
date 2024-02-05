@@ -24,10 +24,10 @@ export class ProductDataService {
 
   getProductById(productId:string): Observable<any> {
       
-    const backendHost = this.backendConfigService.getBackendHost();
+    const backendHost = this.backendConfigService.getProductsHost();
     const apiUrl = `${backendHost}/api/produits/id/${productId}`;
 
-    console.log ("products: ", this.http.get<any>(`${apiUrl}`));
+    console.log ("products: ", this.http.get(apiUrl));
     return this.http.get(apiUrl);
   }
 }

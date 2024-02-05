@@ -9,6 +9,8 @@ import { OneProductComponent } from './pages/one-product/one-product.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
+import { PaymentComponent } from './components/test/payment/payment.component';
+import { DashboardComponent } from './pages/client/dashboard/dashboard.component';
 
 const routes: Routes = [
   {
@@ -43,6 +45,9 @@ const routes: Routes = [
   {
     path:"artisan",
     loadChildren:()=> import("./pages/artisan/artisan.module").then(m=>m.ArtisanModule)
+  },{
+    path:"client",
+    loadChildren:()=> import("./pages/client/client.module").then(m=>m.ClientModule)
   },
   {
     path:"upload",
@@ -54,6 +59,9 @@ const routes: Routes = [
   { 
     path:"checkout", 
     component:CheckoutComponent 
+  },{ 
+    path:"payment", 
+    component:PaymentComponent 
   },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];

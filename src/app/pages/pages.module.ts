@@ -16,6 +16,9 @@ import { OneProductComponent } from './one-product/one-product.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient } from '@angular/common/http';
+import { DashboardComponent } from './client/dashboard/dashboard.component';
+import { ClientModule } from './client/client.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 // AoT requires an export function for factories
@@ -41,6 +44,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     SharedModule,
     InformationsModule,
     ArtisanModule,
+    ClientModule,
+    FormsModule,
+    CommonModule,
+    ReactiveFormsModule
   ],
   exports: [],
 })

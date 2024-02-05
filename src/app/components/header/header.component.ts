@@ -1,8 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { UserData } from 'src/app/models/auth.model';
 import { Cart, CartItem } from 'src/app/models/cart.model';
+import { ModalRegisterComponent } from 'src/app/pages/auth/components/modal-register/modal-register.component';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { UserDataService } from 'src/app/services/auth/user-data.service';
 import { CartService } from 'src/app/services/utils/cart.service';
@@ -15,6 +17,7 @@ import { CartService } from 'src/app/services/utils/cart.service';
 export class HeaderComponent implements OnInit {
 
   user!:any
+  notificationCount:number = 0;
 
   isAuthenticated: boolean = false;
 
@@ -47,6 +50,7 @@ export class HeaderComponent implements OnInit {
     private userDataService : UserDataService,
     private service : AuthService,
     private toaster:ToastrService,
+    private dialog: MatDialog,
     ) {}
   navigateTo( route: string ): void {
     this.router.navigate([ route ]);
@@ -90,6 +94,16 @@ export class HeaderComponent implements OnInit {
 
     })
 
+  }
+
+  openChoiceModal(): void {
+    const dialogRef = this.dialog.open(ModalRegisterComponent, {
+      width: '300px', // ajustez la largeur en fonction de vos besoins
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
 }
