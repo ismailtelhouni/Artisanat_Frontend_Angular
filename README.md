@@ -29,5 +29,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## L'idée
 
-
 Une application de gestion des artisanats permet aux artisans de créer leur propre boutique en ligne où ils peuvent publier et vendre leurs produits artisanaux. Les clients peuvent parcourir les boutiques des artisans et acheter les produits qui les intéressent. En résumé, c'est une plateforme qui connecte les artisans et les clients, facilitant ainsi les ventes et les achats d'articles artisanaux.
+
+## technologie
+
+L'application utilise Angular pour le front-end, ce qui est déjà inclus dans le dépôt. Pour le back-end, Java EE est utilisé, comme détaillé dans le lien https://github.com/ismailtelhouni/Artisanat_Backend_JAVA_EE. En d'autres termes, Angular est utilisé pour la partie visible et interactive de l'application, tandis que Java EE gère les opérations et la logique côté serveur.
